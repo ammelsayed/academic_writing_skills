@@ -1,0 +1,21 @@
+{
+  "name": "academic-writing-skills",
+  "description": "Write, review, and synthesise academic papers: LaTeX build rules, paragraph discipline, claim-evidence auditing, and citation-graph literature review.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ahmed M. M. Elsayed",
+    "url": "https://github.com/ammelsayed"
+  },
+  "homepage": "https://github.com/ammelsayed/academic_writing_skills",
+  "repository": "https://github.com/ammelsayed/academic_writing_skills",
+  "license": "MIT",
+  "keywords": [
+    "academic",
+    "writing",
+    "latex",
+    "paper",
+    "literature-review",
+    "peer-review",
+    "research"
+  ]
+}

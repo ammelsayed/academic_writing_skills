@@ -1,0 +1,26 @@
+{
+  "name": "academic-writing-skills",
+  "owner": {
+    "name": "Ahmed M. M. Elsayed",
+    "url": "https://github.com/ammelsayed"
+  },
+  "description": "Academic writing skills for AI agents: write papers, review papers, and build literature reviews. Works with Claude Code, Codex, OpenCode, Cursor, DSH, WorkBuddy, and any Agent Skills compatible client.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "academic-writing-skills",
+      "source": "./",
+      "description": "Three skills: academic-paper (write and build), academic-literature-review (search, screen, synthesise), academic-paper-review (referee a manuscript).",
+      "version": "1.0.0",
+      "category": "writing",
+      "tags": [
+        "academic",
+        "latex",
+        "paper",
+        "literature-review",
+        "peer-review"
+      ],
+      "strict": false
+    }
+  ]
+}

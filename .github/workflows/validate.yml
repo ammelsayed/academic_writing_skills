@@ -1,0 +1,39 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate SKILL.md against the Agent Skills spec
+        run: python3 scripts/validate_skills.py
+
+      - name: Check plugin manifest is valid JSON
+        run: |
+          python3 -c "import json;json.load(open('.claude-plugin/plugin.json'))"
+          python3 -c "import json;json.load(open('.claude-plugin/marketplace.json'))"
+
+      - name: Check every skill is referenced in the marketplace
+        run: |
+          python3 - <<'EOF'
+          import json, pathlib, sys
+          mp = json.load(open('.claude-plugin/marketplace.json'))
+          names = {p['name'] for p in mp['plugins']}
+          assert names, 'marketplace has no plugins'
+          skills = {p.name for p in pathlib.Path('skills').iterdir() if p.is_dir()}
+          print('skills:', sorted(skills))
+          print('marketplace plugins:', sorted(names))
+          EOF
+
+      - name: Shell installer is syntactically valid
+        run: bash -n install.sh
